@@ -5,10 +5,10 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HomeComponent } from './home/home.component';
-import { MainBlogComponent } from './main-blog/main-blog.component';
+import { LoginComponent } from './view/login/login.component';
+import { PageNotFoundComponent } from './view/page-not-found/page-not-found.component';
+import { HomeComponent } from './view/home/home.component';
+import { MainBlogComponent } from './view/main-blog/main-blog.component';
 import { NavComponent } from './shared/nav/nav.component';
 
 @NgModule({
