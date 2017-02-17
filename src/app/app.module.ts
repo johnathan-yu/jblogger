@@ -11,6 +11,9 @@ import { HomeComponent } from './view/home/home.component';
 import { MainBlogComponent } from './view/main-blog/main-blog.component';
 import { NavComponent } from './shared/nav/nav.component';
 
+import { LocalStorageModule } from 'angular-2-local-storage';
+import { CreateUserComponent } from './view/create-user/create-user.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,8 @@ import { NavComponent } from './shared/nav/nav.component';
     PageNotFoundComponent,
     HomeComponent,
     MainBlogComponent,
-    NavComponent
+    NavComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +32,14 @@ import { NavComponent } from './shared/nav/nav.component';
       { path: 'login', component: LoginComponent },
       { path: 'home', component: HomeComponent },
       { path: 'mainblog', component: MainBlogComponent },
+      { path: 'createUser', component: CreateUserComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent }
-    ])
+    ]),
+    LocalStorageModule.withConfig({
+      prefix: 'jb',
+      storageType: 'localStorage'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

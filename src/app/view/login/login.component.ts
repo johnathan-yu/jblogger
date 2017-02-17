@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { User } from 'app/model/user';
 import { AuthenticationService } from 'app/service/authenticationService';
 
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   public userName: string = '';
   public password: string = '';
   public invalidLogin: boolean = false;
+  public errorMessage: string;
 
   constructor(
     private _authenticationService: AuthenticationService,
@@ -29,10 +31,17 @@ export class LoginComponent implements OnInit {
 
     this.invalidLogin = false;
 
-    if (this._authenticationService.authenticateLogin(this.userName, this.password)) {
-      this._router.navigate(['mainblog'], { relativeTo: this._router.routerState.root });
-    }
+    this._authenticationService.authenticateLogin(this.userName, this.password)
+      .subscribe(
+      isAuthenticated => {
+        if (isAuthenticated) {
+          this._router.navigate(['mainblog'], { relativeTo: this._router.routerState.root });
+        }
 
-    this.invalidLogin = true;
+        this.invalidLogin = true;
+      },
+      error => {
+        this.errorMessage = <any>error
+      });
   }
 }

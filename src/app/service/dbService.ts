@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
 import { User } from 'app/model/user';
 
 @Injectable()
 export class DBService {
+    private _apiUsersUrl = 'assets/users.json';
 
-    constructor() { }
+    constructor(private _http: Http) { }
 
-    getUsers (): User[] {
-        // TODO: Hard code sample data for now.  Need to write service to get real data.
-        var users = new Array<User>();
-        users.push(new User('John', 'A', 'Smith', 'jsmith', 'jsmith@jblogger.com'));
-        users.push(new User('John', 'B', 'Doe', 'jdoe', 'jdoe@jblogger.com'));
-        return users;
+    getUsers(): Observable<User[]> {
+        return this._http.get(this._apiUsersUrl)
+            .map((response: Response) => <User[]>response.json())
+            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    private handleError(error: Response) {
+        console.error(error);
+        return Observable.throw(error.json().error || 'Server Error');
     }
 }
