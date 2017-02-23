@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-// import { Observable } from 'rxjs/Observable';
 import { User } from 'app/model/user';
 import { AuthenticationService } from 'app/core/authentication.service';
 

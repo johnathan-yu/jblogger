@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from 'app/view/home/home.component'
+import { HomeComponent } from 'app/view/home/home.component';
 
 @NgModule({
     declarations: [HomeComponent],
