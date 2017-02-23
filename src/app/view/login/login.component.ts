@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
 import { User } from 'app/model/user';
 import { AuthenticationService } from 'app/core/authentication.service';
 
@@ -9,7 +9,7 @@ import { AuthenticationService } from 'app/core/authentication.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
   public title: string = 'Login Page';
   public userName: string = '';
@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
     private _authenticationService: AuthenticationService,
     private _router: Router
   ) { }
-
-  ngOnInit() {
-  }
 
   login(): void {
     if (this.userName.length === 0 || this.password.length === 0)
