@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
-import { AuthenticationService } from 'app/service/authenticationService';
-import { DBService } from 'app/service/dbService';
 import { LocalStorageService } from 'angular-2-local-storage';
 import { Principal } from 'app/model/principal';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [AuthenticationService, DBService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -18,27 +15,29 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.ensureUserIsAuthenticated();
+    // this.ensureUserIsAuthenticated();
   }
 
-  ensureUserIsAuthenticated(): void {
-    this._router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        let url = event.url;
+  // ensureUserIsAuthenticated(): void {
+  //   this._router.events.subscribe((event) => {
+  //     if (event instanceof NavigationEnd) {
+  //       let url = event.url;
 
-        // Exclude login page from checking authentication
-        if (url.toLowerCase() === this._router.routerState.root + '/login')
-          return;
+  //       // Exclude login page from checking authentication
+  //       if (url.toLowerCase() === this._router.routerState.root + '/login')
+  //         return;
 
-        // Check authentication
-        let principal = this._localStorageService.get<Principal>('Principal');
+  //       // Check authentication
+  //       let principal = this._localStorageService.get<Principal>('Principal');
 
-        if (principal === null) {
-          this._router.navigate(['login'], { relativeTo: this._router.routerState.root });
-        } else if (!principal.isAuthenticated) {
-          this._router.navigate(['login'], { relativeTo: this._router.routerState.root });
-        }
-      }
-    });
-  }
+  //       if (principal === null) {
+  //         alert("You are not logged in.  Please log in.");
+  //         this._router.navigate(['login'], { relativeTo: this._router.routerState.root });
+  //       } else if (!principal.isAuthenticated) {
+  //         alert("You are not logged in.  Please log in.");
+  //         this._router.navigate(['login'], { relativeTo: this._router.routerState.root });
+  //       }
+  //     }
+  //   });
+  // }
 }

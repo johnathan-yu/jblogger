@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { User } from 'app/model/user';
-import { AuthenticationService } from 'app/service/authenticationService';
+import { AuthenticationService } from 'app/core/authentication.service';
 
 @Component({
   selector: 'jb-login',

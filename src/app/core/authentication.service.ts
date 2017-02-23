@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { User } from 'app/model/user';
 import { Principal } from 'app/model/principal';
-import { DBService } from 'app/service/dbService';
+import { DBService } from 'app/core/db.service';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
