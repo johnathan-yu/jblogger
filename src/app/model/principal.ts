@@ -1,11 +1,11 @@
-import { User } from 'app/model/user';
+import { IUser } from 'app/model/user';
 
-export class Principal {
-    user: User = this._user;
+export class IPrincipal {
+    user: IUser = this._user;
     isAuthenticated: boolean = this._isAuthenticated;
     
     constructor(
-        private _user: User,
+        private _user: IUser,
         private _isAuthenticated: boolean
     ) { }
 }

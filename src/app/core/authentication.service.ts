@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { User } from 'app/model/user';
-import { Principal } from 'app/model/principal';
+import { IUser } from 'app/model/user';
+import { IPrincipal } from 'app/model/principal';
 import { DBService } from 'app/core/db.service';
 import { LocalStorageService } from 'angular-2-local-storage';
 
 @Injectable()
 export class AuthenticationService {
-    private _users: User[];
+    private _users: IUser[];
     errorMessage: string;
 
     constructor(
@@ -29,7 +29,7 @@ export class AuthenticationService {
                         let user = this._users[i];
 
                         if (usernameToMatch === userName && passwordToMatch === password) {
-                            this._localStorageService.set("Principal", new Principal(user, true));
+                            this._localStorageService.set("Principal", new IPrincipal(user, true));
                             authenticated = true;
                         }
                     }

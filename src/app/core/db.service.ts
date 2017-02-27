@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
-import { User } from 'app/model/user';
+import { IUser } from 'app/model/user';
 
 @Injectable()
 export class DBService {
@@ -12,9 +12,9 @@ export class DBService {
 
     constructor(private _http: Http) { }
 
-    getUsers(): Observable<User[]> {
+    getUsers(): Observable<IUser[]> {
         return this._http.get(this._apiUsersUrl)
-            .map((response: Response) => <User[]>response.json())
+            .map((response: Response) => <IUser[]>response.json())
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }

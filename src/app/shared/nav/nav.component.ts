@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'angular-2-local-storage';
-import { Principal} from 'app/model/principal';
+import { IPrincipal} from 'app/model/principal';
 
 @Component({
   selector: 'jb-nav',
@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
   }
 
   isAuthenticatedUser(): boolean {
-    let principal = this._localStorageService.get<Principal>('Principal');
+    let principal = this._localStorageService.get<IPrincipal>('Principal');
 
     if (principal === null) {
       return false;

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'app/model/user';
+import { IUser } from 'app/model/user';
 
 @Component({
   selector: 'jb-create-user',
