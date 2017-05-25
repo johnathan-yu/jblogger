@@ -12,5 +12,12 @@
         "lastName": "Doe",
         "userName": "jdoe",
         "email": "jdoe@jblogger.com"
+    },
+    {
+        "firstName": "Johnathan",
+        "middleName": "",
+        "lastName": "Yu",
+        "userName": "jyu",
+        "email": "jyuyj@hotmail.com"
     }
 ]
