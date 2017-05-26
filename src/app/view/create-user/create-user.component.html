@@ -2,41 +2,40 @@
   <div class="panel-heading">
     {{title}}
   </div>
-
+  <jb-alerts></jb-alerts>
   <form class="form-horizontal myForm" (ngSubmit)="createUser()" #myForm="ngForm">
     <div class="form-group">
       <label class="control-label col-sm-2">First Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Enter first name" required [(ngModel)]="firstName" id="firstName"
-          name="firstName" />
+        <input type="text" class="form-control" placeholder="Enter first name" required [(ngModel)]="firstName" id="firstName" name="firstName" value="testFN"
+        />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2">Middle Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Enter middle name" [(ngModel)]="middleName" id="middleName"
-          name="middleName" />
+        <input type="text" class="form-control" placeholder="Enter middle name" [(ngModel)]="middleName" id="middleName" name="middleName"
+        />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2">Last Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Enter last name" required [(ngModel)]="lastName" id="lastName"
-          name="lastName" />
+        <input type="text" class="form-control" placeholder="Enter last name" required [(ngModel)]="lastName" id="lastName" name="lastName"
+        />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2">User Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Enter user name" required [(ngModel)]="userName" id="userName"
-          name="userName" />
+        <input type="text" class="form-control" placeholder="Enter user name" required [(ngModel)]="userName" id="userName" name="userName"
+        />
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2">Email:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" placeholder="Enter email" required [(ngModel)]="email" id="email" name="email"
-        />
+        <input type="text" class="form-control" placeholder="Enter email" required [(ngModel)]="email" id="email" name="email" />
       </div>
     </div>
     <div class="form-group">

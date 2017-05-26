@@ -1,14 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DBService } from 'app/core/db.service';
 import { IUser } from 'app/model/user';
+import { AlertsComponent } from 'app/shared/alerts/alerts.component';
 
 @Component({
   selector: 'jb-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css']
 })
-export class CreateUserComponent implements OnInit {
+export class CreateUserComponent implements AfterViewInit {
+  @ViewChild(AlertsComponent)
+  private alertsComponent: AlertsComponent;
+
   title: string = 'Create User';
   firstName: string;
   middleName: string;
@@ -18,11 +23,19 @@ export class CreateUserComponent implements OnInit {
 
   constructor(
     private _dbservice: DBService,
-    private _router: Router
+    private _router: Router,
   ) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
 
+  }
+
+  clearUser() {
+    this.firstName = '';
+    this.middleName = '';
+    this.lastName = '';
+    this.userName = '';
+    this.email = ''
   }
 
   createUser() {
@@ -38,13 +51,14 @@ export class CreateUserComponent implements OnInit {
     this._dbservice.createUser(user).subscribe(
       newUser => {
         if (newUser != null) {
-          // Create user succeeded.  Route to main blog.
-          this._router.navigate(['mainblog'], { relativeTo: this._router.routerState.root });
+          this.clearUser();
+          console.log('User created.');
+          this.alertsComponent.showSuccess('User created');
         }
-        console.log("Create User");
       },
       error => {
         console.log(error);
+        this.alertsComponent.showDanger(error);
       });
   }
 }
