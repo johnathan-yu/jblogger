@@ -1,0 +1,23 @@
+[
+    {
+        "firstName": "John",
+        "middleName": "A",
+        "lastName": "Smith",
+        "userName": "jsmith",
+        "email": "jsmith@jblogger.com"
+    },
+    {
+        "firstName": "John",
+        "middleName": "B",
+        "lastName": "Doe",
+        "userName": "jdoe",
+        "email": "jdoe@jblogger.com"
+    },
+    {
+        "firstName": "Johnathan",
+        "middleName": "",
+        "lastName": "Yu",
+        "userName": "jyu",
+        "email": "jyuyj@hotmail.com"
+    }
+]
