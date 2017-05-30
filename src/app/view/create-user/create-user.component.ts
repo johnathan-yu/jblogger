@@ -23,7 +23,7 @@ export class CreateUserComponent implements AfterViewInit {
 
   constructor(
     private _dbservice: DBService,
-    private _router: Router,
+    private _router: Router
   ) { }
 
   ngAfterViewInit() {

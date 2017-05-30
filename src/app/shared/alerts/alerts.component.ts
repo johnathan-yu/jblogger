@@ -36,16 +36,14 @@ export class AlertsComponent implements OnInit {
     this.classes = classes;
     this.visibility = 'shown';
 
-    setTimeout(() =>
-      this.visibility = 'hidden'
-      , 3000);
+    setTimeout(() => this.clearAlert(), 3000);
   }
 
   clearAlert() {
+    this.visibility = 'hidden';
     if (this.message && this.message.length > 0) {
       this.message = '';
       this.classes = '';
-      this.visibility = 'hidden';
     }
   }
 
