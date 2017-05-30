@@ -34,6 +34,7 @@ export class DBService {
 
     private extractData(res: Response) {
         let body = res.json();
+        console.log('extractData: ' + JSON.stringify(body.data || {}));
         return body.data || {};
     }
 

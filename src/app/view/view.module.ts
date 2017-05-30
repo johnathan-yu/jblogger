@@ -9,8 +9,8 @@ import { PageNotFoundModule } from 'app/view/page-not-found/page-not-found.modul
 
 @NgModule({
     imports: [
-        LoginModule,
         HomeModule,
+        LoginModule,
         MainBlogModule,
         CreateUserModule,
         PageNotFoundModule // Must be last due to route expression

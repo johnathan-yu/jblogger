@@ -6,6 +6,7 @@ import { HomeComponent } from 'app/view/home/home.component';
     declarations: [HomeComponent],
     imports: [
         RouterModule.forChild([
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent }
         ])
     ]

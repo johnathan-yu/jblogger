@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { SharedModule } from 'app/shared/shared.module';
 import { ViewModule } from 'app/view/view.module'
-
 import { AppComponent } from 'app/app.component';
 import { CoreServiceModule } from 'app/core/core.service.module';
 
@@ -15,15 +14,13 @@ import { CoreServiceModule } from 'app/core/core.service.module';
   imports: [
     SharedModule,
     HttpModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
-    ]),
+    ViewModule,
     LocalStorageModule.withConfig({
       prefix: 'jb',
       storageType: 'localStorage'
     }),
-    ViewModule,
-    CoreServiceModule
+    CoreServiceModule,
+    RouterModule.forRoot([])
   ],
   bootstrap: [AppComponent]
 })
